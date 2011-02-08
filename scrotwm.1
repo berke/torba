@@ -1,0 +1,586 @@
+.\"	$scrotwm: scrotwm.1,v 1.36 2011/01/18 20:52:17 marco Exp $
+.\"
+.\" Copyright (c) 2009 Marco Peereboom <marco@peereboom.us>
+.\" Copyright (c) 2009 Darrin Chandler <dwchandler@stilyagin.com>
+.\"
+.\" Permission to use, copy, modify, and distribute this software for any
+.\" purpose with or without fee is hereby granted, provided that the above
+.\" copyright notice and this permission notice appear in all copies.
+.\"
+.\" THE SOFTWARE IS PROVIDED "AS IS" AND THE AUTHOR DISCLAIMS ALL WARRANTIES
+.\" WITH REGARD TO THIS SOFTWARE INCLUDING ALL IMPLIED WARRANTIES OF
+.\" MERCHANTABILITY AND FITNESS. IN NO EVENT SHALL THE AUTHOR BE LIABLE FOR
+.\" ANY SPECIAL, DIRECT, INDIRECT, OR CONSEQUENTIAL DAMAGES OR ANY DAMAGES
+.\" WHATSOEVER RESULTING FROM LOSS OF USE, DATA OR PROFITS, WHETHER IN AN
+.\" ACTION OF CONTRACT, NEGLIGENCE OR OTHER TORTIOUS ACTION, ARISING OUT OF
+.\" OR IN CONNECTION WITH THE USE OR PERFORMANCE OF THIS SOFTWARE.
+.\"
+.Dd $Mdocdate: January 18 2011 $
+.Dt SCROTWM 1
+.Os
+.Sh NAME
+.Nm scrotwm
+.Nd window manager for X11
+.Sh SYNOPSIS
+.Nm scrotwm
+.Sh DESCRIPTION
+.Nm
+is a minimalistic window manager that tries to stay out of the way so that
+valuable screen real estate can be used for much more important stuff.
+It has sane defaults and does not require one to learn a language to do any
+configuration.
+It was written by hackers for hackers and it strives to be small, compact and
+fast.
+.Pp
+When
+.Nm
+starts up, it reads settings from its configuration file,
+.Pa scrotwm.conf .
+See the
+.Sx CONFIGURATION FILES
+section below.
+.Pp
+The following notation is used throughout this page:
+.Pp
+.Bl -tag -width Ds -offset indent -compact
+.It Cm M
+Meta
+.It Cm S
+Shift
+.It Aq Cm Name
+Named key
+.It Cm M1
+Mouse button 1
+.It Cm M3
+Mouse button 3
+.El
+.Pp
+.Nm
+is very simple in its use.
+Most of the actions are initiated via key or mouse bindings.
+See the
+.Sx BINDINGS
+section below for defaults and customizations.
+.Sh CONFIGURATION FILES
+.Nm
+first tries to open the user specific file,
+.Pa ~/.scrotwm.conf .
+If that file is unavailable,
+it then tries to open the global configuration file
+.Pa /etc/scrotwm.conf .
+.Pp
+The format of the file is \*(Ltkeyword\*(Gt = \*(Ltsetting\*(Gt.
+For example:
+.Pp
+.Dl color_focus = red
+.Pp
+Enabling or disabling an option is done by using 1 or 0 respectively.
+.Pp
+The file supports the following keywords:
+.Pp
+.Bl -tag -width "title_class_enabledXXX" -offset indent -compact
+.It Cm color_focus
+Border color of the currently focussed window.
+.It Cm color_unfocus
+Border color of unfocussed windows.
+.It Cm bar_enabled
+Enable or disable status bar.
+.It Cm bar_border Ns Bq Ar x
+Color of the status bar border in screen
+.Ar x .
+.It Cm bar_color Ns Bq Ar x
+Color of the status bar window in screen
+.Ar x .
+.It Cm bar_font_color Ns Bq Ar x
+Color of the font in status bar in screen
+.Ar x .
+.It Cm bar_font
+Status bar font.
+.It Cm bar_action
+External script that populates additional information in the status bar,
+such as battery life.
+.It Cm bar_delay
+Update frequency, in seconds, of external script that populates the status bar.
+.It Cm bar_at_bottom
+Place the statusbar at the bottom of each region instead of the top.
+.It Cm stack_enabled
+Enable or disable displaying the current stacking algorithm in the status bar.
+.It Cm clock_enabled
+Enable or disable displaying the clock in the status bar.
+Disable by setting to 0
+so a custom clock could be used in the bar_action script.
+.It Cm dialog_ratio
+Some applications have dialogue windows that are too small to be useful.
+This ratio is the screen size to what they will be resized.
+For example, 0.6 is 60% of the physical screen size.
+.It Cm region
+Allocates a custom region, removing any autodetected regions which occupy the same
+space on the screen.
+Defined in the format screen[<idx>]:WIDTHxHEIGHT+X+Y,
+e.g.\& screen[1]:800x1200+0+0.
+.It Cm term_width
+Set a preferred minimum width for the terminal
+If this value is greater than 0,
+.Nm
+will attempt to adjust the font sizes in the terminal to keep the terminal
+width above this number as the window is resized.
+Only
+.Xr xterm 1
+is currently supported.
+The
+.Xr xterm 1
+binary must not be setuid or setgid, which it is by default on most systems.
+Users may need to set program[term] (see the
+.Sx PROGRAMS
+section) to use an alternate copy of the
+.Xr xterm 1
+binary without the setgid bit set.
+.It Cm title_class_enabled
+Enable or disable displaying the window class in the status bar.
+Enable by setting to 1
+.It Cm title_name_enabled
+Enable or disable displaying the window title in the status bar.
+Enable by setting to 1
+.It Cm window_name_enabled
+Enable or disable displaying the window name in the status bar.
+Enable by setting to 1
+.It Cm modkey
+Change mod key.
+Mod1 is generally the ALT key and Mod4 is the windows key on a PC.
+.It Cm focus_mode
+Using a value of follow_cursor will make the window manager focus the window
+under the mouse when switching workspaces and creating windows.
+.It Cm disable_border
+Remove border when bar is disabled and there is only one window on the screen.
+.It Cm program Ns Bq Ar p
+Define new action to spawn a program
+.Ar p .
+See the
+.Sx PROGRAMS
+section below.
+.It Cm bind Ns Bq Ar x
+Bind key combo to action
+.Ar x .
+See the
+.Sx BINDINGS
+section below.
+.It Cm quirk Ns Bq Ar c:n
+Add "quirk" for windows with class
+.Ar c
+and name
+.Ar n .
+See the
+.Sx QUIRKS
+section below.
+.El
+.Pp
+Colors need to be specified per the
+.Xr XQueryColor 3
+specification and fonts need to be specified per the
+.Xr XQueryFont 3
+specification.
+.Pp
+To list the available fonts in your system see
+.Xr fc-list 1
+or
+.Xr xlsfonts 1
+manpages.
+The 
+.Xr xfontsel 1
+application can help you to show the X Logical Font Description ("XLFD") used
+as setting in the keyword bar_font.
+.Sh PROGRAMS
+.Nm
+allows you to define custom actions to launch programs of your choice and then
+bind them the same as with built-in actions.
+See the
+.Sx BINDINGS
+section below.
+.Pp
+The default programs are described below:
+.Pp
+.Bl -tag -width "screenshot_wind" -offset indent -compact
+.It Cm term
+xterm
+.It Cm screenshot_all
+screenshot.sh full
+.It Cm screenshot_wind
+screenshot.sh window
+.It Cm lock
+xlock
+.It Cm initscr
+initscreen.sh
+.It Cm menu
+dmenu_run \-fn $bar_font \-nb $bar_color \-nf $bar_font_color \-sb $bar_border \-sf $bar_color
+.El
+.Pp
+Custom programs in the configuration file are specified as follows:
+.Pp
+.Dl program[<name>] = <progpath> [<arg> [... <arg>]]
+.Pp
+.Aq name
+is any identifier that does not conflict with a built-in action or keyword,
+.Aq progpath
+is the desired program, and
+.Aq arg
+is zero or more arguments to the program.
+.Pp
+The following variables represent settable values in
+.Nm
+(see the
+.Sx CONFIGURATION FILES
+section above),
+and may be used in the
+.Aq arg
+fields and will be substituted for values at the time the program is spawned:
+.Pp
+.Bl -tag -width "$bar_font_color" -offset indent -compact
+.It Cm $bar_border
+.It Cm $bar_color
+.It Cm $bar_font
+.It Cm $bar_font_color
+.It Cm $color_focus
+.It Cm $color_unfocus
+.El
+.Pp
+Example:
+.Bd -literal -offset indent
+program[ff] = /usr/local/bin/firefox http://scrotwm.org/
+bind[ff] = Mod+f # Now Mod+F launched firefox
+.Ed
+.Pp
+To undo the previous:
+.Bd -literal -offset indent
+bind[] = Mod+f
+program[ff] =
+.Ed
+.Pp
+.Sh BINDINGS
+.Nm
+provides many functions (or actions) accessed via key or mouse bindings.
+.Pp
+The current mouse bindings are described below:
+.Pp
+.Bl -tag -width "M-j, M-<TAB>XXX" -offset indent -compact
+.It Cm M1
+Focus window
+.It Cm M-M1
+Move window
+.It Cm M-M3
+Resize window
+.It Cm M-S-M3
+Resize window while maintaining it centered
+.El
+.Pp
+The default key bindings are described below:
+.Pp
+.Bl -tag -width "M-j, M-<TAB>XXX" -offset indent -compact
+.It Cm M-S- Ns Aq Cm Return
+term
+.It Cm M-p
+menu
+.It Cm M-S-q
+quit
+.It Cm M-q
+restart
+.Nm
+.It Cm M- Ns Aq Cm Space
+cycle_layout
+.It Cm M-S- Ns Aq Cm Space
+reset_layout
+.It Cm M-h
+master_shrink
+.It Cm M-l
+master_grow
+.It Cm M-,
+master_add
+.It Cm M-.
+master_del
+.It Cm M-S-,
+stack_inc
+.It Cm M-S-.
+stack_del
+.It Cm M- Ns Aq Cm Return
+swap_main
+.It Xo
+.Cm M-j ,
+.Cm M- Ns Aq Cm TAB
+.Xc
+focus_next
+.It Xo
+.Cm M-k ,
+.Cm M-S- Ns Aq Cm TAB
+.Xc
+focus_prev
+.It Cm M-m
+focus_main
+.It Cm M-S-j
+swap_next
+.It Cm M-S-k
+swap_prev
+.It Cm M-b
+bar_toggle
+.It Cm M-x
+wind_del
+.It Cm M-S-x
+wind_kill
+.It Cm M- Ns Aq Ar n
+.Ns ws_ Ns Ar n
+.It Cm M-S- Ns Aq Ar n
+.Ns mvws_ Ns Ar n
+.It Cm M- Ns Aq Cm Right
+ws_next
+.It Cm M- Ns Aq Cm Left
+ws_prev
+.It Cm M-a
+ws_prior
+.It Cm M-S- Ns Aq Cm Right
+screen_next
+.It Cm M-S- Ns Aq Cm Left
+screen_prev
+.It Cm M-s
+screenshot_all
+.It Cm M-S-s
+screenshot_wind
+.It Cm M-S-v
+version
+.It Cm M-t
+float_toggle
+.It Cm M-S Aq Cm Delete
+lock
+.It Cm M-S-i
+initscr
+.El
+.Pp
+The action names and descriptions are listed below:
+.Pp
+.Bl -tag -width "M-j, M-<TAB>XXX" -offset indent -compact
+.It Cm term
+Spawn a new terminal
+(see
+.Sx PROGRAMS
+above)
+.It Cm menu
+Menu
+(see
+.Sx PROGRAMS
+above)
+.It Cm quit
+Quit
+.Nm
+.It Cm restart
+Restart
+.Nm
+.It Cm cycle_layout
+Cycle layout
+.It Cm reset_layout
+Reset layout
+.It Cm master_shrink
+Shrink master area
+.It Cm master_grow
+Grow master area
+.It Cm master_add
+Add windows to master area
+.It Cm master_del
+Remove windows from master area
+.It Cm stack_inc
+Add columns/rows to stacking area
+.It Cm stack_del
+Remove columns/rows from stacking area
+.It Cm swap_main
+Move current window to master area
+.It Cm focus_next
+Focus next window in workspace
+.It Cm focus_prev
+Focus previous window in workspace
+.It Cm focus_main
+Focus on main window in workspace
+.It Cm swap_next
+Swap with next window in workspace
+.It Cm swap_prev
+Swap with previous window in workspace
+.It Cm bar_toggle
+Toggle status bar in all workspaces
+.It Cm wind_del
+Delete current window in workspace
+.It Cm wind_kill
+Destroy current window in workspace
+.It Cm ws_ Ns Ar n
+Switch to workspace
+.Ar n ,
+where
+.Ar n
+is 1 through 10
+.It Cm mvws_ Ns Ar n
+Move current window to workspace
+.Ar n ,
+where
+.Ar n
+is 1 through 10
+.It Cm ws_next
+Switch to next workspace with a window in it
+.It Cm ws_prev
+Switch to previous workspace with a window in it
+.It Cm ws_prior
+Switch to last visited workspace
+.It Cm screen_next
+Move pointer to next region
+.It Cm screen_prev
+Move pointer to previous region
+.It Cm screenshot_all
+Take screenshot of entire screen (if enabled)
+(see
+.Sx PROGRAMS
+above)
+.It Cm screenshot_wind
+Take screenshot of selected window (if enabled)
+(see
+.Sx PROGRAMS
+above)
+.It Cm version
+Toggle version in status bar
+.It Cm float_toggle
+Toggle focused window between tiled and floating
+.It Cm lock
+Lock screen
+(see
+.Sx PROGRAMS
+above)
+.It Cm initscr
+Reinitialize physical screens
+(see
+.Sx PROGRAMS
+above)
+.El
+.Pp
+Custom bindings in the configuration file are specified as follows:
+.Pp
+.Dl bind[<action>] = <keys>
+.Pp
+.Aq action
+is one of the actions listed above (or empty) and
+.Aq keys
+is in the form of zero or more modifier keys
+(MOD, Mod1, Shift, etc.) and one or more normal keys
+(b, space, etc.), separated by "+".
+For example:
+.Bd -literal -offset indent
+bind[reset] = Mod4+q # bind Windows-key + q to reset
+bind[] = Mod1+q # unbind Alt + q
+.Ed
+.Pp
+Multiple key combinations may be bound to the same action.
+.Sh QUIRKS
+.Nm
+provides "quirks" which handle windows that must be treated specially
+in a tiling window manager, such as some dialogs and fullscreen apps.
+.Pp
+The default quirks are described below:
+.Pp
+.Bl -tag -width "OpenOffice.org N.M:VCLSalFrame<TAB>XXX" -offset indent -compact
+.It Firefox\-bin:firefox\-bin
+TRANSSZ
+.It Firefox:Dialog
+FLOAT
+.It Gimp:gimp
+FLOAT + ANYWHERE
+.It MPlayer:xv
+FLOAT + FULLSCREEN
+.It OpenOffice.org 2.4:VCLSalFrame
+FLOAT
+.It OpenOffice.org 3.1:VCLSalFrame
+FLOAT
+.It pcb:pcb
+FLOAT
+.It xine:Xine Window
+FLOAT + ANYWHERE
+.It xine:xine Panel
+FLOAT + ANYWHERE
+.It xine:xine Video Fullscreen Window
+FULLSCREEN + FLOAT
+.It Xitk:Xitk Combo
+FLOAT + ANYWHERE
+.It Xitk:Xine Window
+FLOAT + ANYWHERE
+.It XTerm:xterm
+XTERM_FONTADJ
+.El
+.Pp
+The quirks themselves are described below:
+.Pp
+.Bl -tag -width "XTERM_FONTADJ<TAB>XXX" -offset indent -compact
+.It FLOAT
+This window should not be tiled, but allowed to float freely.
+.It TRANSSZ
+Adjusts size on transient windows that are too small using dialog_ratio
+(see
+.Sx CONFIGURATION FILES ) .
+.It ANYWHERE
+Allow window to position itself, uncentered.
+.It XTERM_FONTADJ
+Adjust xterm fonts when resizing.
+.It FULLSCREEN
+Remove border to allow window to use full screen size.
+.El
+.Pp
+Custom quirks in the configuration file are specified as follows:
+.Pp
+.Dl quirk[<class>:<name>] = <quirk> [ + <quirk> ... ]
+.Pp
+.Aq class
+and
+.Aq name
+specify the window to which the quirk(s) apply, and
+.Aq quirk
+is one of the quirks from the list above.
+For example:
+.Bd -literal -offset indent
+quirk[MPlayer:xv] = FLOAT + FULLSCREEN # let mplayer play
+quirk[pcb:pcb] = NONE  # remove existing quirk
+.Ed
+.Pp
+You can obtain
+.Aq class
+and
+.Aq name
+by running xprop(1) and then clicking on the desired window.
+In the following example the main window of Firefox was clicked:
+.Bd -literal -offset indent
+$ xprop | grep WM_CLASS
+WM_CLASS(STRING) = "Navigator", "Firefox"
+.Ed
+.Pp
+Note that grepping for WM_CLASS flips class and name.
+In the example above the quirk entry would be:
+.Bd -literal -offset indent
+quirk[Firefox:Navigator] = FLOAT
+.Ed
+.Sh SIGNALS
+Sending
+.Nm
+a HUP signal will retstart it.
+.Sh FILES
+.Bl -tag -width "/etc/scrotwm.confXXX" -compact
+.It Pa ~/.scrotwm.conf
+.Nm
+user specific settings.
+.It Pa /etc/scrotwm.conf
+.Nm
+global settings.
+.El
+.Sh HISTORY
+.Nm
+was inspired by xmonad & dwm.
+.Sh AUTHORS
+.An -nosplit
+.Pp
+.Nm
+was written by
+.An Marco Peereboom Aq marco@peereboom.us ,
+.An Ryan Thomas McBride Aq mcbride@countersiege.com
+and
+.An Darrin Chandler Aq dwchandler@stilyagin.com .
+.Sh BUGS
+Currently the menu, invoked with
+.Cm M-p ,
+depends on dmenu.
