@@ -1614,7 +1614,9 @@ spawn(struct twm_region *r, union arg *args)
 		if (display)
 			close(ConnectionNumber(display));
 
+#if 0
 		setenv("LD_PRELOAD", TWM_LIB, 1);
+#endif
 
 		if (asprintf(&ret, "%d", r->ws->idx) == -1) {
 			perror("_TWM_WS");
