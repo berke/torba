@@ -1,4 +1,4 @@
-/* $scrotwm: scrotwm.c,v 1.308 2011/01/18 19:43:12 marco Exp $ */
+/* $torba: torba.c,v 1.308 2011/01/18 19:43:12 marco Exp $ */
 /*
  * Copyright (c) 2009-2010 Marco Peereboom <marco@peereboom.us>
  * Copyright (c) 2009 Ryan McBride <mcbride@countersiege.com>
@@ -50,7 +50,7 @@
  * DEALINGS IN THE SOFTWARE.
  */
 
-static const char	*cvstag = "$scrotwm: scrotwm.c,v 1.308 2011/01/18 19:43:12 marco Exp $";
+static const char	*cvstag = "$torba: torba.c,v 1.308 2011/01/18 19:43:12 marco Exp $";
 
 #define	SWM_VERSION	"0.9.27"
 
@@ -3963,7 +3963,7 @@ setup_quirks(void)
 }
 
 /* conf file stuff */
-#define SWM_CONF_FILE	"scrotwm.conf"
+#define SWM_CONF_FILE	"torba.conf"
 
 enum	{ SWM_S_BAR_DELAY, SWM_S_BAR_ENABLED, SWM_S_STACK_ENABLED,
 	  SWM_S_CLOCK_ENABLED, SWM_S_CLOCK_FORMAT, SWM_S_CYCLE_EMPTY,
@@ -4698,7 +4698,7 @@ enternotify(XEvent *e)
 	 * the window or a subwindow already has focus (occurs during restart).
 	 *
 	 * Only honor the focus flag if last_focus_event is not FocusOut,
-	 * this allows scrotwm to continue to control focus when another
+	 * this allows torba to continue to control focus when another
 	 * program is also playing with it.
 	 */
 	if (ev->state || (ev->focus && last_focus_event != FocusOut)) {
@@ -5358,7 +5358,7 @@ main(int argc, char *argv[])
 	struct sigaction	sact;
 
 	start_argv = argv;
-	fprintf(stderr, "Welcome to scrotwm V%s cvs tag: %s\n",
+	fprintf(stderr, "Welcome to torba V%s cvs tag: %s\n",
 	    SWM_VERSION, cvstag);
 	if (!setlocale(LC_CTYPE, "") || !XSupportsLocale())
 		warnx("no locale support");

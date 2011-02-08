@@ -1,4 +1,4 @@
-/* $scrotwm: swm_hack.c,v 1.2 2009/02/07 19:49:58 mcbride Exp $ */
+/* $torba: swm_hack.c,v 1.2 2009/02/07 19:49:58 mcbride Exp $ */
 /*
  * Copyright (c) 2009 Marco Peereboom <marco@peereboom.us>
  * Copyright (c) 2009 Ryan McBride <mcbride@countersiege.com>

@@ -1,11 +1,11 @@
 #!/bin/sh
 #
-# $scrotwm: baraction.sh,v 1.17 2010/07/01 19:49:37 marco Exp $
+# $torba: baraction.sh,v 1.17 2010/07/01 19:49:37 marco Exp $
 
 print_date() {
 	# The date is printed to the status bar by default.
 	# To print the date through this script, set clock_enabled to 0
-	# in scrotwm.conf.  Uncomment "print_date" below.
+	# in torba.conf.  Uncomment "print_date" below.
 	FORMAT="%a %b %d %R %Z %Y"
 	DATE=`date "+${FORMAT}"`
 	echo -n "${DATE}     "

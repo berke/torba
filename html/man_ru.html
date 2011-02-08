@@ -1,28 +1,28 @@
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
-<title>scrotwm_ru.1.html</title>
+<title>torba_ru.1.html</title>
 <meta name="Generator" content="Vim/7.2">
 <meta http-equiv="content-type" content="text/html; charset=UTF-8">
 </head>
 <body text="#ffffff" bgcolor="#000000"><font face="monospace">
-<font color="#ff40ff">SCROTWM(1)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; OpenBSD Reference Manual&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; SCROTWM(1)</font><br>
+<font color="#ff40ff">TORBA(1)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; OpenBSD Reference Manual&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; TORBA(1)</font><br>
 <br>
 <font color="#ffff00">НАЗВАНИЕ</font><br>
-&nbsp;&nbsp;&nbsp;&nbsp; scrotwm — Оконный менеджер для X11<br>
+&nbsp;&nbsp;&nbsp;&nbsp; torba — Оконный менеджер для X11<br>
 <br>
 <font color="#ffff00">ИСПОЛЬЗОВАНИЕ</font><br>
-&nbsp;&nbsp;&nbsp;&nbsp; scrotwm<br>
+&nbsp;&nbsp;&nbsp;&nbsp; torba<br>
 <br>
 <font color="#ffff00">ОПИСАНИЕ</font><br>
-&nbsp;&nbsp;&nbsp;&nbsp; scrotwm это минималистичный менеджер окон, ставящий своей целью не мешать<br>
+&nbsp;&nbsp;&nbsp;&nbsp; torba это минималистичный менеджер окон, ставящий своей целью не мешать<br>
 &nbsp;&nbsp;&nbsp;&nbsp; вам и не занимать ценное пространство экрана. Его настройки по-умолчанию<br>
 &nbsp;&nbsp;&nbsp;&nbsp; разумны и, кроме того, он не требует знания языков программирования для<br>
 &nbsp;&nbsp;&nbsp;&nbsp; работы с конфигурационным файлом. Он написан хакерами для хакеров и<br>
 &nbsp;&nbsp;&nbsp;&nbsp; старается быть легким, компактным и быстрым.<br>
 <br>
-&nbsp;&nbsp;&nbsp;&nbsp; Когда scrotwm запускается, он читает настройки из своего<br>
-&nbsp;&nbsp;&nbsp;&nbsp; конфигурационного файла, scrotwm.conf.&nbsp;&nbsp;Смотрите секцию КОНФИГУРАЦИОННЫЕ<br>
+&nbsp;&nbsp;&nbsp;&nbsp; Когда torba запускается, он читает настройки из своего<br>
+&nbsp;&nbsp;&nbsp;&nbsp; конфигурационного файла, torba.conf.&nbsp;&nbsp;Смотрите секцию КОНФИГУРАЦИОННЫЕ<br>
 &nbsp;&nbsp;&nbsp;&nbsp; ФАЙЛЫ ниже.<br>
 <br>
 &nbsp;&nbsp;&nbsp;&nbsp; На этой странице используются следующие обозначения:<br>
@@ -33,14 +33,14 @@
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; M1&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Кнопка мыши 1<br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; M3&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Кнопка мыши 3<br>
 <br>
-&nbsp;&nbsp;&nbsp;&nbsp; scrotwm должен быть понятным и очевидным.&nbsp;&nbsp;Большинство действий<br>
+&nbsp;&nbsp;&nbsp;&nbsp; torba должен быть понятным и очевидным.&nbsp;&nbsp;Большинство действий<br>
 &nbsp;&nbsp;&nbsp;&nbsp; выполняется комбинациями клавиш.&nbsp;&nbsp;Смотрите секцию ПРИВЯЗКИ ниже, чтобы<br>
 &nbsp;&nbsp;&nbsp;&nbsp; узнать о стандартных настройках.<br>
 <br>
 <font color="#ffff00">КОНФИГУРАЦИОННЫЕ ФАЙЛЫ</font><br>
-&nbsp;&nbsp;&nbsp;&nbsp; scrotwm пытается прочитать файл в домашнем каталоге, ~/.scrotwm.conf.&nbsp;&nbsp;В<br>
+&nbsp;&nbsp;&nbsp;&nbsp; torba пытается прочитать файл в домашнем каталоге, ~/.torba.conf.&nbsp;&nbsp;В<br>
 &nbsp;&nbsp;&nbsp;&nbsp; случае, если он недоступен, происходит обращение к глобальному файлу<br>
-&nbsp;&nbsp;&nbsp;&nbsp; настроек, /etc/scrotwm.conf.<br>
+&nbsp;&nbsp;&nbsp;&nbsp; настроек, /etc/torba.conf.<br>
 <br>
 &nbsp;&nbsp;&nbsp;&nbsp; Формат файла следующий: &lt;ключ&gt; = &lt;значение&gt;.&nbsp;&nbsp;Например:<br>
 <br>
@@ -81,7 +81,7 @@
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; screen[1]:1280x800+0+0.<br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; term_width&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Установить минимальную допустимую ширину<br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; эмулятора терминала.&nbsp;&nbsp;Если это значение<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; больше 0, scrotwm попытается<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; больше 0, torba попытается<br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; отмасштабировать шрифты в терминале, чтобы<br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ширина была больше этого значения<br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Поодерживается только xterm(1) Также<br>
@@ -111,7 +111,7 @@
 &nbsp;&nbsp;&nbsp;&nbsp; использованием XQueryFont(3)<br>
 <br>
 <font color="#ffff00">ПРОГРАММЫ</font><br>
-&nbsp;&nbsp;&nbsp;&nbsp; scrotwm позволяет Вам добавлять Ваши собственные действия для запуска<br>
+&nbsp;&nbsp;&nbsp;&nbsp; torba позволяет Вам добавлять Ваши собственные действия для запуска<br>
 &nbsp;&nbsp;&nbsp;&nbsp; программ и делать к ним привязки как ко всем остальным действиям Смотрите<br>
 &nbsp;&nbsp;&nbsp;&nbsp; секцию ПРИВЯЗКИ ниже.<br>
 <br>
@@ -133,7 +133,7 @@
 &nbsp;&nbsp;&nbsp;&nbsp; ⟨progpath⟩ это собственно путь к программе, ⟨arg⟩ это список передаваемых<br>
 &nbsp;&nbsp;&nbsp;&nbsp; аргументов или оставьте пустым.<br>
 <br>
-&nbsp;&nbsp;&nbsp;&nbsp; Следующие переменные можно получать из scrotwm (Смотрите секцию<br>
+&nbsp;&nbsp;&nbsp;&nbsp; Следующие переменные можно получать из torba (Смотрите секцию<br>
 &nbsp;&nbsp;&nbsp;&nbsp; КОНФИГУРАЦИОННЫЕ ФАЙЛЫ выше), и их можно использовать как ⟨arg⟩ (в момент<br>
 &nbsp;&nbsp;&nbsp;&nbsp; запуска программы будет выполнена подстановка значений):<br>
 <br>
@@ -146,7 +146,7 @@
 <br>
 &nbsp;&nbsp;&nbsp;&nbsp; Например:<br>
 <br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; program[ff] = /usr/local/bin/firefox <a href="http://scrotwm.org/">http://scrotwm.org/</a><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; program[ff] = /usr/local/bin/firefox <a href="http://torba.org/">http://torba.org/</a><br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; bind[ff] = Mod+f # Значит Mod+F запускает firefox<br>
 <br>
 &nbsp;&nbsp;&nbsp;&nbsp; Чтобы отменить назначение:<br>
@@ -155,7 +155,7 @@
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; program[ff] =<br>
 <br>
 <font color="#ffff00">ПРИВЯЗКИ</font><br>
-&nbsp;&nbsp;&nbsp;&nbsp; scrotwm предоставляет доступ к действиям с помощью клавиатурных<br>
+&nbsp;&nbsp;&nbsp;&nbsp; torba предоставляет доступ к действиям с помощью клавиатурных<br>
 &nbsp;&nbsp;&nbsp;&nbsp; комбинаций.<br>
 <br>
 &nbsp;&nbsp;&nbsp;&nbsp; Установленные привязки для мыши:<br>
@@ -170,7 +170,7 @@
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; M-S-⟨Return⟩&nbsp;&nbsp;&nbsp;&nbsp; term<br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; M-p&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;menu<br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; M-S-q&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;quit<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; M-q&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;restart scrotwm<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; M-q&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;restart torba<br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; M-⟨Space⟩&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;cycle_layout<br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; M-S-⟨Space⟩&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;reset_layout<br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; M-h&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;master_shrink<br>
@@ -206,8 +206,8 @@
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; term&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Запустить эмулятор терминала (Смотрите секцию<br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ПРОГРАММЫ выше)<br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; menu&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Меню (Смотрите секцию ПРОГРАММЫ выше)<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; quit&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Выйти scrotwm<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; restart&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Перезапустить scrotwm<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; quit&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Выйти torba<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; restart&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Перезапустить torba<br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; cycle_layout&nbsp;&nbsp;&nbsp;&nbsp; Менять укладку окон<br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; reset_layout&nbsp;&nbsp;&nbsp;&nbsp; Стандартная укладка<br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; master_shrink&nbsp;&nbsp;&nbsp;&nbsp;Сжать область главного окна<br>
@@ -260,8 +260,8 @@
 &nbsp;&nbsp;&nbsp;&nbsp; На одно действие можно назначить несколько комбинаций.<br>
 <br>
 <font color="#ffff00">КОСТЫЛИ</font><br>
-&nbsp;&nbsp;&nbsp;&nbsp; scrotwm позволяет настроить костыли, нужные для специальной работы<br>
-&nbsp;&nbsp;&nbsp;&nbsp; scrotwm с рядом приложений, который вы определяете сами. То есть, Вы<br>
+&nbsp;&nbsp;&nbsp;&nbsp; torba позволяет настроить костыли, нужные для специальной работы<br>
+&nbsp;&nbsp;&nbsp;&nbsp; torba с рядом приложений, который вы определяете сами. То есть, Вы<br>
 &nbsp;&nbsp;&nbsp;&nbsp; можете принудительно установить способ тайлинга для какого-нибудь<br>
 &nbsp;&nbsp;&nbsp;&nbsp; приложения<br>
 <br>
@@ -316,14 +316,14 @@
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; quirk[Firefox:Navigator] = FLOAT<br>
 <br>
 <font color="#ffff00">ФАЙЛЫ</font><br>
-&nbsp;&nbsp;&nbsp;&nbsp; ~/.scrotwm.conf&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; scrotwm Личные настройки пользователя.<br>
-&nbsp;&nbsp;&nbsp;&nbsp; /etc/scrotwm.conf&nbsp;&nbsp;&nbsp;&nbsp; scrotwm Глобавльные настройки.<br>
+&nbsp;&nbsp;&nbsp;&nbsp; ~/.torba.conf&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; torba Личные настройки пользователя.<br>
+&nbsp;&nbsp;&nbsp;&nbsp; /etc/torba.conf&nbsp;&nbsp;&nbsp;&nbsp; torba Глобавльные настройки.<br>
 <br>
 <font color="#ffff00">ИСТОРИЯ</font><br>
-&nbsp;&nbsp;&nbsp;&nbsp; scrotwm идейно основан на dwm и xmonad<br>
+&nbsp;&nbsp;&nbsp;&nbsp; torba идейно основан на dwm и xmonad<br>
 <br>
 <font color="#ffff00">АВТОРЫ</font><br>
-&nbsp;&nbsp;&nbsp;&nbsp; scrotwm написан: Marco Peereboom ⟨marco@peereboom.us⟩, Ryan Thomas<br>
+&nbsp;&nbsp;&nbsp;&nbsp; torba написан: Marco Peereboom ⟨marco@peereboom.us⟩, Ryan Thomas<br>
 &nbsp;&nbsp;&nbsp;&nbsp; McBride ⟨mcbride@countersiege.com⟩ and Darrin Chandler<br>
 &nbsp;&nbsp;&nbsp;&nbsp; ⟨dwchandler@stilyagin.com⟩.<br>
 <br>

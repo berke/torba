@@ -2,7 +2,7 @@
 <html>
 <head>
 <meta http-equiv="content-type" content="text/html; charset=iso-8859-1">
-<title>~/scrotwm_pt.1.html</title>
+<title>~/torba_pt.1.html</title>
 <meta name="Generator" content="Vim/7.3">
 <meta name="plugin-version" content="vim7.3_v6">
 <meta name="syntax" content="man">
@@ -19,24 +19,24 @@ body { font-family: monospace; background-color: #000000; color: #ffffff; }
 </head>
 <body>
 <pre>
-<span class="Title">SCROTWM(1)                 OpenBSD Reference Manual                 SCROTWM(1)</span>
+<span class="Title">TORBA(1)                 OpenBSD Reference Manual                 TORBA(1)</span>
 
 <span class="Statement">NOME</span>
-     scrotwm - gerenciador de janela para o X11
+     torba - gerenciador de janela para o X11
 
 <span class="Statement">SINOPSE</span>
-     scrotwm
+     torba
 
 <span class="Statement">DESCRICAO</span>
-     scrotwm e um gerenciador de janela minimalista que tenta nao atrapalhar a
+     torba e um gerenciador de janela minimalista que tenta nao atrapalhar a
      valorosa forma real da tela para que essa possa ser usada para coisas
      muito mais importantes.  Tem sensatos defaults e nao requer que alguem
      aprenda uma linguagem de programacao para fazer qualquer configuracao.
      Ele foi escrito por hackers para hackers e esforca-se em ser pequeno,
      compacto e rapido.
 
-     Quando o scrotwm inicia, ele le as configuracoes do seu arquivo de
-     configuracao, scrotwm.conf.  Veja a secao ARQUIVOS DE CONFIGURACAO logo
+     Quando o torba inicia, ele le as configuracoes do seu arquivo de
+     configuracao, torba.conf.  Veja a secao ARQUIVOS DE CONFIGURACAO logo
      abaixo.
 
      A seguinte notacao e usada por toda essa pagina:
@@ -47,14 +47,14 @@ body { font-family: monospace; background-color: #000000; color: #ffffff; }
            M1      Botao 1 do mouse
            M3      Botao 3 do mouse
 
-     scrotwm e muito simples de usar.  Muitas das acoes sao iniciadas por
+     torba e muito simples de usar.  Muitas das acoes sao iniciadas por
      atalhos do mouse ou do teclado.  Veja a secao ATALHOS logo abaixo para os
      defaults e as personalizacoes.
 
 <span class="Statement">ARQUIVOS DE CONFIGURACAO</span>
-     scrotwm primeiro tenta abrir o arquivo de configuracao no diretorio do
-     usuario, ~/.scrotwm.conf.  Se o arquivo nao estiver disponivel, entao
-     tenta abrir o arquivo de configuracao global /etc/scrotwm.conf.
+     torba primeiro tenta abrir o arquivo de configuracao no diretorio do
+     usuario, ~/.torba.conf.  Se o arquivo nao estiver disponivel, entao
+     tenta abrir o arquivo de configuracao global /etc/torba.conf.
 
      Assim e o formato do arquivo:&lt;palavra-chave&gt; = &lt;configuracao&gt;.  Por
      exemplo:
@@ -100,7 +100,7 @@ body { font-family: monospace; background-color: #000000; color: #ffffff; }
                                    e.g. screen[1]:800x1200+0+0.
            term_width              Configura a largura minima preferida para o
                                    terminal Se esse valor for maior do que 0,
-                                   scrotwm vai tentar ajustar os tamanhos da
+                                   torba vai tentar ajustar os tamanhos da
                                    fonte no terminal para manter a largura do
                                    terminal acima desse numero enquanto a
                                    janela e redimencionada.  Apenas o <span class="PreProc">xterm(1)</span>
@@ -145,7 +145,7 @@ body { font-family: monospace; background-color: #000000; color: #ffffff; }
      palavra-chave bar_font.
 
 <span class="Statement">PROGRAMAS</span>
-     scrotwm te permite definir acoes personalizadas para executar programas
+     torba te permite definir acoes personalizadas para executar programas
      de sua escolha e entao criar um atalho para elas da mesma forma que as
      acoes embutidas.  Veja a secao ATALHOS logo abaixo.
 
@@ -168,7 +168,7 @@ body { font-family: monospace; background-color: #000000; color: #ffffff; }
      palavra-chave embutida, &lt;progpath&gt; e o programa desejado, e &lt;arg&gt; e zero
      ou mais argumentos para o programa.
 
-     As seguintes variaveis representam valores configuraveis no scrotwm (veja
+     As seguintes variaveis representam valores configuraveis no torba (veja
      a secao ARQUIVOS DE CONFIGURACAO logo acima), e podem ser usadas nos
      campos &lt;arg&gt; e serao substituidas pelos valores na hora em que o programa
      for executado:
@@ -182,7 +182,7 @@ body { font-family: monospace; background-color: #000000; color: #ffffff; }
 
      Exemplo:
 
-           program[ff] = /usr/local/bin/firefox <a href="http://scrotwm.org/">http://scrotwm.org/</a>
+           program[ff] = /usr/local/bin/firefox <a href="http://torba.org/">http://torba.org/</a>
            bind[ff] = Mod+f # Agora Mod+F executa o firefox
 
      Para desfazer a configuracao anterior:
@@ -191,7 +191,7 @@ body { font-family: monospace; background-color: #000000; color: #ffffff; }
            program[ff] =
 
 <span class="Statement">ATALHOS</span>
-     scrotwm prove muitas funcoes (ou aces) acessadas pelos atalhos do teclado
+     torba prove muitas funcoes (ou aces) acessadas pelos atalhos do teclado
      ou do mouse.
 
      Os atuais atalhos do mouse sao descritos abaixo:
@@ -207,7 +207,7 @@ body { font-family: monospace; background-color: #000000; color: #ffffff; }
            M-S-&lt;Return&gt;     term
            M-p              menu
            M-S-q            quit
-           M-q              restart scrotwm
+           M-q              restart torba
            M-&lt;Space&gt;        cycle_layout
            M-S-&lt;Space&gt;      reset_layout
            M-h              master_shrink
@@ -244,8 +244,8 @@ body { font-family: monospace; background-color: #000000; color: #ffffff; }
            term             Executa um novo terminal (veja a secao PROGRAMAS
                             logo acima)
            menu             Menu (veja a secao PROGRAMAS logo acima)
-           quit             Sair scrotwm
-           restart          Reiniciar scrotwm
+           quit             Sair torba
+           restart          Reiniciar torba
            cycle_layout     Circula entre os possiveis layouts
            reset_layout     Reinicia o layout
            master_shrink    Encolhe a area mestre
@@ -302,7 +302,7 @@ body { font-family: monospace; background-color: #000000; color: #ffffff; }
      Multiplas combinacoes de teclas podem ser usadas para a mesma acao.
 
 <span class="Statement">QUIRKS</span>
-     scrotwm prove &quot;quirks&quot; que manipulam janelas que devem ser tratadas
+     torba prove &quot;quirks&quot; que manipulam janelas que devem ser tratadas
      especialmente em um gerenciador de janela &quot;tiling&quot;, tal como algumas
      aplicacoes de dialogos e tela cheia.
 
@@ -360,18 +360,18 @@ body { font-family: monospace; background-color: #000000; color: #ffffff; }
            quirk[Firefox:Navigator] = FLOAT
 
 <span class="Statement">SINAIS</span>
-     Enviar ao scrotwm um sinal HUP fara com que o mesmo seja reiniciado.
+     Enviar ao torba um sinal HUP fara com que o mesmo seja reiniciado.
 
 <span class="Statement">ARQUIVOS</span>
-     ~/.scrotwm.conf       Configuracoes especificas do usuario.
-     /etc/scrotwm.conf     Configuracoes globais.
+     ~/.torba.conf       Configuracoes especificas do usuario.
+     /etc/torba.conf     Configuracoes globais.
 
 <span class="Statement">HISTORIA</span>
-     scrotwm foi inspirado pelo xmonad &amp; dwm.
+     torba foi inspirado pelo xmonad &amp; dwm.
 
 <span class="Statement">AUTORES</span>
 
-     scrotwm foi escrito por Marco Peereboom &lt;marco@peereboom.us&gt;, Ryan Thomas
+     torba foi escrito por Marco Peereboom &lt;marco@peereboom.us&gt;, Ryan Thomas
      McBride &lt;mcbride@countersiege.com&gt; e Darrin Chandler
      &lt;dwchandler@stilyagin.com&gt;.
 

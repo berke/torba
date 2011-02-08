@@ -1,4 +1,4 @@
-.\"	$scrotwm: scrotwm_ru.1,v 1.1 2009/10/25 00:32:33 marco Exp $
+.\"	$torba: torba_ru.1,v 1.1 2009/10/25 00:32:33 marco Exp $
 .\"
 .\" Copyright (c) 2009 Marco Peereboom <marco@peereboom.us>
 .\" Copyright (c) 2009 Darrin Chandler <dwchandler@stilyagin.com>
@@ -16,13 +16,13 @@
 .\" OR IN CONNECTION WITH THE USE OR PERFORMANCE OF THIS SOFTWARE.
 .\"
 .Dd $Mdocdate: October 25 2009 $
-.Dt SCROTWM 1
+.Dt TORBA 1
 .Os
 .Sh НАЗВАНИЕ
-.Nm scrotwm
+.Nm torba
 .Nd Оконный менеджер для X11
 .Sh ИСПОЛЬЗОВАНИЕ
-.Nm scrotwm
+.Nm torba
 .Sh ОПИСАНИЕ
 .Nm
 это минималистичный менеджер окон, ставящий своей целью не мешать вам и не
@@ -34,7 +34,7 @@
 Когда
 .Nm
 запускается, он читает настройки из своего конфигурационного файла,
-.Pa scrotwm.conf .
+.Pa torba.conf .
 Смотрите секцию
 .Sx КОНФИГУРАЦИОННЫЕ ФАЙЛЫ
 ниже.
@@ -63,10 +63,10 @@ Shift
 .Sh КОНФИГУРАЦИОННЫЕ ФАЙЛЫ
 .Nm
 пытается прочитать файл в домашнем каталоге,
-.Pa ~/.scrotwm.conf .
+.Pa ~/.torba.conf .
 В случае, если он недоступен,
 происходит обращение к глобальному файлу настроек,
-.Pa /etc/scrotwm.conf .
+.Pa /etc/torba.conf .
 .Pp
 Формат файла следующий: \*(Ltключ\*(Gt = \*(Ltзначение\*(Gt.
 Например:
@@ -225,7 +225,7 @@ dmenu_run \-fn $bar_font \-nb $bar_color \-nf $bar_font_color \-sb $bar_border \
 .Pp
 Например:
 .Bd -literal -offset indent
-program[ff] = /usr/local/bin/firefox http://scrotwm.org/
+program[ff] = /usr/local/bin/firefox http://torba.org/
 bind[ff] = Mod+f # Значит Mod+F запускает firefox
 .Ed
 .Pp
@@ -448,7 +448,7 @@ bind[] = Mod1+q # снять все действия с Alt + q
 На одно действие можно назначить несколько комбинаций.
 .Sh КОСТЫЛИ
 .Nm
-позволяет настроить костыли, нужные для специальной работы scrotwm
+позволяет настроить костыли, нужные для специальной работы torba
 с рядом приложений, который вы определяете сами. То есть, Вы можете
 принудительно установить способ тайлинга для какого-нибудь приложения
 .Pp
@@ -533,11 +533,11 @@ WM_CLASS(STRING) = "Navigator", "Firefox"
 quirk[Firefox:Navigator] = FLOAT
 .Ed
 .Sh ФАЙЛЫ
-.Bl -tag -width "/etc/scrotwm.confXXX" -compact
-.It Pa ~/.scrotwm.conf
+.Bl -tag -width "/etc/torba.confXXX" -compact
+.It Pa ~/.torba.conf
 .Nm
 Личные настройки пользователя.
-.It Pa /etc/scrotwm.conf
+.It Pa /etc/torba.conf
 .Nm
 Глобавльные настройки.
 .El

@@ -1,10 +1,10 @@
 #!/bin/ksh
 #
-# $scrotwm: release.sh,v 1.11 2010/09/16 02:00:51 marco Exp $
+# $torba: release.sh,v 1.11 2010/09/16 02:00:51 marco Exp $
 
-PREFIX=scrotwm-
+PREFIX=torba-
 DIRS="lib linux osx"
-FILES="Makefile baraction.sh initscreen.sh screenshot.sh scrotwm.1 scrotwm_es.1 scrotwm_it.1 scrotwm_pt.1 scrotwm_ru.1 scrotwm.c scrotwm.conf linux/Makefile linux/linux.c linux/util.h lib/Makefile lib/shlib_version lib/swm_hack.c osx/Makefile osx/osx.h osx/osx.c"
+FILES="Makefile baraction.sh initscreen.sh screenshot.sh torba.1 torba_es.1 torba_it.1 torba_pt.1 torba_ru.1 torba.c torba.conf linux/Makefile linux/linux.c linux/util.h lib/Makefile lib/shlib_version lib/swm_hack.c osx/Makefile osx/osx.h osx/osx.c"
 
 if [ -z "$1" ]; then
 	echo "usage: release.sh <version>"
@@ -36,12 +36,12 @@ tar zcf $TARGET.tgz $TARGET
 
 # make port
 sudo rm -rf ports
-sudo cvs -d /cvs co ports/x11/scrotwm
+sudo cvs -d /cvs co ports/x11/torba
 PORT="$PREFIX$1-port"
 mkdir $PORT
 
 # Makefile
-cat port/Makefile | sed "s/SCROTWMVERSION/$1/g" > $PORT/Makefile
+cat port/Makefile | sed "s/TORBAVERSION/$1/g" > $PORT/Makefile
 
 # distinfo
 cksum -b -a md5 $TARGET.tgz > $PORT/distinfo
@@ -58,11 +58,11 @@ cp port/pkg/PLIST $PORT/pkg/
 
 # patches
 mkdir $PORT/patches
-cp port/patches/patch-scrotwm_c $PORT/patches/
-cp port/patches/patch-scrotwm_conf $PORT/patches/
+cp port/patches/patch-torba_c $PORT/patches/
+cp port/patches/patch-torba_conf $PORT/patches/
 
 # make diff
-diff -ruNp -x CVS ports/x11/scrotwm/ $PORT > $TARGET.diff
+diff -ruNp -x CVS ports/x11/torba/ $PORT > $TARGET.diff
 
 # kill ports dir or cvs will be angry
 sudo rm -rf ports

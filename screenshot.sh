@@ -1,6 +1,6 @@
 #!/bin/sh
 #
-# $scrotwm: screenshot.sh,v 1.3 2009/09/13 22:28:53 marco Exp $
+# $torba: screenshot.sh,v 1.3 2009/09/13 22:28:53 marco Exp $
 
 screenshot() {
 	case $1 in

@@ -1,4 +1,4 @@
-/* $scrotwm: osx.c,v 1.2 2009/11/25 16:12:13 marco Exp $ */
+/* $torba: osx.c,v 1.2 2009/11/25 16:12:13 marco Exp $ */
 
 #include <sys/types.h>
 #include <sys/cdefs.h>

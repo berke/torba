@@ -1,4 +1,4 @@
-.\"	$scrotwm: scrotwm.1,v 1.36 2011/01/18 20:52:17 marco Exp $
+.\"	$torba: torba.1,v 1.36 2011/01/18 20:52:17 marco Exp $
 .\"
 .\" Copyright (c) 2009 Marco Peereboom <marco@peereboom.us>
 .\" Copyright (c) 2009 Darrin Chandler <dwchandler@stilyagin.com>
@@ -16,13 +16,13 @@
 .\" OR IN CONNECTION WITH THE USE OR PERFORMANCE OF THIS SOFTWARE.
 .\"
 .Dd $Mdocdate: January 18 2011 $
-.Dt SCROTWM 1
+.Dt TORBA 1
 .Os
 .Sh NAME
-.Nm scrotwm
+.Nm torba
 .Nd window manager for X11
 .Sh SYNOPSIS
-.Nm scrotwm
+.Nm torba
 .Sh DESCRIPTION
 .Nm
 is a minimalistic window manager that tries to stay out of the way so that
@@ -35,7 +35,7 @@ fast.
 When
 .Nm
 starts up, it reads settings from its configuration file,
-.Pa scrotwm.conf .
+.Pa torba.conf .
 See the
 .Sx CONFIGURATION FILES
 section below.
@@ -64,10 +64,10 @@ section below for defaults and customizations.
 .Sh CONFIGURATION FILES
 .Nm
 first tries to open the user specific file,
-.Pa ~/.scrotwm.conf .
+.Pa ~/.torba.conf .
 If that file is unavailable,
 it then tries to open the global configuration file
-.Pa /etc/scrotwm.conf .
+.Pa /etc/torba.conf .
 .Pp
 The format of the file is \*(Ltkeyword\*(Gt = \*(Ltsetting\*(Gt.
 For example:
@@ -245,7 +245,7 @@ fields and will be substituted for values at the time the program is spawned:
 .Pp
 Example:
 .Bd -literal -offset indent
-program[ff] = /usr/local/bin/firefox http://scrotwm.org/
+program[ff] = /usr/local/bin/firefox http://torba.org/
 bind[ff] = Mod+f # Now Mod+F launched firefox
 .Ed
 .Pp
@@ -560,11 +560,11 @@ Sending
 .Nm
 a HUP signal will retstart it.
 .Sh FILES
-.Bl -tag -width "/etc/scrotwm.confXXX" -compact
-.It Pa ~/.scrotwm.conf
+.Bl -tag -width "/etc/torba.confXXX" -compact
+.It Pa ~/.torba.conf
 .Nm
 user specific settings.
-.It Pa /etc/scrotwm.conf
+.It Pa /etc/torba.conf
 .Nm
 global settings.
 .El

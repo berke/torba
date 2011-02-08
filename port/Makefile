@@ -4,11 +4,11 @@ COMMENT=		small tiling window manager
 
 SHARED_LIBS=		swmhack 0.0
 
-DISTNAME=		scrotwm-SCROTWMVERSION
+DISTNAME=		torba-TORBAVERSION
 EXTRACT_SUFX=		.tgz
 CATEGORIES=		x11
 
-HOMEPAGE=		http://www.scrotwm.org/
+HOMEPAGE=		http://www.torba.org/
 MAINTAINER=		Marco Peereboom <marco@peereboom.us>
 
 # BSD
@@ -17,7 +17,7 @@ PERMIT_PACKAGE_FTP=     Yes
 PERMIT_DISTFILES_CDROM= Yes
 PERMIT_DISTFILES_FTP=   Yes
 
-MASTER_SITES=	http://opensource.conformal.com/snapshots/scrotwm/
+MASTER_SITES=	http://opensource.conformal.com/snapshots/torba/
 
 NO_REGRESS=     Yes
 WANTLIB=        c X11 Xrandr util
@@ -31,18 +31,18 @@ MAKE_FLAGS=	BINDIR="${TRUEPREFIX}/bin" \
 USE_GROFF =	Yes
 
 pre-configure:
-	@${SUBST_CMD} ${WRKSRC}/scrotwm.conf ${WRKSRC}/scrotwm.c
+	@${SUBST_CMD} ${WRKSRC}/torba.conf ${WRKSRC}/torba.c
 
 post-install:
-	${INSTALL_DATA_DIR} ${PREFIX}/share/examples/scrotwm
-	${INSTALL_SCRIPT} ${WRKSRC}/baraction.sh ${PREFIX}/share/examples/scrotwm
-	${INSTALL_SCRIPT} ${WRKSRC}/initscreen.sh ${PREFIX}/share/examples/scrotwm
-	${INSTALL_SCRIPT} ${WRKSRC}/screenshot.sh ${PREFIX}/share/examples/scrotwm
-	${INSTALL_DATA} ${WRKSRC}/scrotwm.conf ${PREFIX}/share/examples/scrotwm
+	${INSTALL_DATA_DIR} ${PREFIX}/share/examples/torba
+	${INSTALL_SCRIPT} ${WRKSRC}/baraction.sh ${PREFIX}/share/examples/torba
+	${INSTALL_SCRIPT} ${WRKSRC}/initscreen.sh ${PREFIX}/share/examples/torba
+	${INSTALL_SCRIPT} ${WRKSRC}/screenshot.sh ${PREFIX}/share/examples/torba
+	${INSTALL_DATA} ${WRKSRC}/torba.conf ${PREFIX}/share/examples/torba
 
 .for i in es it pt ru
 	${INSTALL_DATA_DIR} ${PREFIX}/man/$i/cat1
-	mv ${PREFIX}/man/cat1/scrotwm_$i.0 ${PREFIX}/man/$i/cat1/scrotwm.0
+	mv ${PREFIX}/man/cat1/torba_$i.0 ${PREFIX}/man/$i/cat1/torba.0
 .endfor
 
 .include <bsd.port.mk>

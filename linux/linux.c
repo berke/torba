@@ -1,4 +1,4 @@
-/* $scrotwm: linux.c,v 1.1 2009/01/22 23:12:27 marco Exp $ */
+/* $torba: linux.c,v 1.1 2009/01/22 23:12:27 marco Exp $ */
 
 #include <sys/types.h>
 #include <sys/cdefs.h>

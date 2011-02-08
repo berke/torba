@@ -1,4 +1,4 @@
-.\"    $scrotwm: scrotwm_pt.1,v 1.2 2011/01/18 19:43:12 marco Exp $
+.\"    $torba: torba_pt.1,v 1.2 2011/01/18 19:43:12 marco Exp $
 .\"
 .\" Copyright (c) 2009 Marco Peereboom <marco@peereboom.us>
 .\" Copyright (c) 2009 Darrin Chandler <dwchandler@stilyagin.com>
@@ -16,13 +16,13 @@
 .\" OR IN CONNECTION WITH THE USE OR PERFORMANCE OF THIS SOFTWARE.
 .\"
 .Dd $Mdocdate: January 18 2011 $
-.Dt SCROTWM 1
+.Dt TORBA 1
 .Os
 .Sh NOME
-.Nm scrotwm
+.Nm torba
 .Nd gerenciador de janela para o X11
 .Sh SINOPSE
-.Nm scrotwm
+.Nm torba
 .Sh DESCRI\(,C\(~AO
 .Nm
 \('e um gerenciador de janela minimalista que tenta n\(~ao atrapalhar a
@@ -36,7 +36,7 @@ r\('apido.
 Quando o
 .Nm
 inicia, ele l\(^e as configura\(,c\(~oes do seu arquivo de configura\(,c\(~ao,
-.Pa scrotwm.conf .
+.Pa torba.conf .
 Veja a se\(,c\(~ao
 .Sx ARQUIVOS DE CONFIGURA\(,C\(~AO
 logo abaixo.
@@ -65,10 +65,10 @@ logo abaixo para os defaults e as personaliza\(,c\(~oes.
 .Sh ARQUIVOS DE CONFIGURA\(,C\(~AO
 .Nm
 primeiro tenta abrir o arquivo de configura\(,c\(~ao no diret\('orio do usu\('ario,
-.Pa ~/.scrotwm.conf .
+.Pa ~/.torba.conf .
 Se o arquivo n\(~ao estiver dispon\('ivel, ent\(~ao tenta abrir o arquivo de
 configura\(,c\(~ao global
-.Pa /etc/scrotwm.conf .
+.Pa /etc/torba.conf .
 .Pp
 Assim \('e o formato do arquivo:\*(Ltpalavra-chave\*(Gt = \*(Ltconfigura\(,c\(~ao\*(Gt.
 Por exemplo:
@@ -245,7 +245,7 @@ e ser\(~ao substitu\('idas pelos valores na hora em que o programa for executado
 .Pp
 Exemplo:
 .Bd -literal -offset indent
-program[ff] = /usr/local/bin/firefox http://scrotwm.org/
+program[ff] = /usr/local/bin/firefox http://torba.org/
 bind[ff] = Mod+f # Agora Mod+F executa o firefox
 .Ed
 .Pp
@@ -562,10 +562,10 @@ Enviar ao
 .Nm
 um sinal HUP far\('a com que o mesmo seja reiniciado.
 .Sh ARQUIVOS
-.Bl -tag -width "/etc/scrotwm.confXXX" -compact
-.It Pa ~/.scrotwm.conf
+.Bl -tag -width "/etc/torba.confXXX" -compact
+.It Pa ~/.torba.conf
 Configura\(,c\(~oes espec\('ificas do usu\('ario.
-.It Pa /etc/scrotwm.conf
+.It Pa /etc/torba.conf
 Configura\(,c\(~oes globais.
 .El
 .Sh HIST\('ORIA

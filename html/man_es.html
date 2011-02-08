@@ -2,7 +2,7 @@
 <html>
 <head>
 <meta http-equiv="content-type" content="text/html; charset=iso-8859-1">
-<title>~/scrotwm_es.1.html</title>
+<title>~/torba_es.1.html</title>
 <meta name="Generator" content="Vim/7.3">
 <meta name="plugin-version" content="vim7.3_v6">
 <meta name="syntax" content="man">
@@ -19,23 +19,23 @@ body { font-family: monospace; background-color: #000000; color: #ffffff; }
 </head>
 <body>
 <pre>
-<span class="Title">SCROTWM(1)                 OpenBSD Reference Manual                 SCROTWM(1)</span>
+<span class="Title">TORBA(1)                 OpenBSD Reference Manual                 TORBA(1)</span>
 
 <span class="Statement">NOMBRE</span>
-     scrotwm - es un manejador de ventanas para X11
+     torba - es un manejador de ventanas para X11
 
 <span class="Statement">SYNOPSIS</span>
-     scrotwm
+     torba
 
 <span class="Statement">DESCRIPCIN</span>
-     scrotwm es un manejador de ventanas super minimalista para X11. Intenta
+     torba es un manejador de ventanas super minimalista para X11. Intenta
      no superponer las ventanas para que las mismas puedan usarse de manera
      eficiente y para cosas mas importantes.  Tiene configuraciones normales y
      no requiere que sepas un lenguaje de programacion para configurarlo. Esta
      escrito por hackers para hackers y apunta a ser pequeo, compacto y rpido.
 
-     Cuando scrotwm inicia, lo primero que hace es leer el archivo de
-     configuracion, scrotwm.conf.  Ver ARCHIVOS DE CONFIGURACIN
+     Cuando torba inicia, lo primero que hace es leer el archivo de
+     configuracion, torba.conf.  Ver ARCHIVOS DE CONFIGURACIN
 
      La siguiente anotacion se usa a travs de esta pagina:
 
@@ -45,14 +45,14 @@ body { font-family: monospace; background-color: #000000; color: #ffffff; }
            M1      Boton 1 del mouse
            M3      Boton 3 del mouse
 
-     scrotwm es muy simple de usar.  La mayoria de las acciones se hacen con
+     torba es muy simple de usar.  La mayoria de las acciones se hacen con
      los mapeos (bindings) de mouse o teclado.  Ver la seccin de BINDINGS para
      las personalizaciones y configuraciones por defecto.
 
 <span class="Statement">ARCHIVOS DE CONFIGURACIN</span>
-     scrotwm primero trata de abrir el archivo por defecto en el directorio
-     del usuario, ~/.scrotwm.conf.  Si ese archivo no esta disponible, luego
-     trata de abrir el archivo global de configuracion /etc/scrotwm.conf.
+     torba primero trata de abrir el archivo por defecto en el directorio
+     del usuario, ~/.torba.conf.  Si ese archivo no esta disponible, luego
+     trata de abrir el archivo global de configuracion /etc/torba.conf.
 
      El formato del archivo es &lt;tecla&gt; = &lt;configuracion&gt;.  Por ejemplo:
 
@@ -101,7 +101,7 @@ body { font-family: monospace; background-color: #000000; color: #ffffff; }
                                    screen[1]:800x1200+0+0.
            term_width              Setear un ancho minimo preferido para la
                                    terminal.  Si el valor es mayor que 0,
-                                   scrotwm intentar ajustar el tamao de la
+                                   torba intentar ajustar el tamao de la
                                    fuente de la terminal para mantener el
                                    ancho de la terminal por encima de este
                                    nmero cuando la ventana cambia de tamao.
@@ -141,7 +141,7 @@ body { font-family: monospace; background-color: #000000; color: #ffffff; }
      las fuentes por la especificacin <span class="PreProc">XQueryFont(3)</span>
 
 <span class="Statement">PROGRAMAS</span>
-     scrotwm te permite definir acciones personales para lanzar los programas
+     torba te permite definir acciones personales para lanzar los programas
      que quieras y luego obligar a la misma con una funcin de acciones.  Ver
      la seccin BINDINGS
 
@@ -163,7 +163,7 @@ body { font-family: monospace; background-color: #000000; color: #ffffff; }
      palabra clave, &lt;progpath&gt; es la ruta al programa, y &lt;arg&gt; es ninguno o
      mas de un argumento para el programa.
 
-     Las siguientes variables de configuracion en scrotwm (ver ARCHIVOS DE
+     Las siguientes variables de configuracion en torba (ver ARCHIVOS DE
      CONFIGURACIN ), y pueden ser usadas en los campos de &lt;arg&gt; como asi
      tambien sustituidas por valores al momento del inicio de un programa:
 
@@ -176,7 +176,7 @@ body { font-family: monospace; background-color: #000000; color: #ffffff; }
 
      Ejemplo:
 
-           program[ff] = /usr/local/bin/firefox <a href="http://scrotwm.com.ar/">http://scrotwm.com.ar/</a>
+           program[ff] = /usr/local/bin/firefox <a href="http://torba.com.ar/">http://torba.com.ar/</a>
            bind[ff] = Mod+f # Ahora Mod+F inicia firefox
 
      Para deshacer lo anterior:
@@ -185,10 +185,10 @@ body { font-family: monospace; background-color: #000000; color: #ffffff; }
            program[ff] =
 
 <span class="Statement">SIGNALS</span>
-     Enviando scrotwm una se?al de HUP reinicia scrotwm.
+     Enviando torba una se?al de HUP reinicia torba.
 
 <span class="Statement">BINDINGS</span>
-     scrotwm provee muchas funciones (o acciones) accesibles por medio de la
+     torba provee muchas funciones (o acciones) accesibles por medio de la
      asignacin (bindings) de teclas o el mouse.
 
      Las corrientes asignaciones (bindings) del mouse son:
@@ -203,7 +203,7 @@ body { font-family: monospace; background-color: #000000; color: #ffffff; }
            M-S-&lt;Return&gt;     term
            M-p              menu
            M-S-q            quit
-           M-q              restart scrotwm
+           M-q              restart torba
            M-&lt;Space&gt;        cycle_layout
            M-S-&lt;Space&gt;      reset_layout
            M-h              master_shrink
@@ -239,8 +239,8 @@ body { font-family: monospace; background-color: #000000; color: #ffffff; }
 
            term             Ejecutar una terminal (ver PROGRAMAS)
            menu             Menu (ver PROGRAMAS)
-           quit             Salir scrotwm
-           restart          Reiniciar scrotwm
+           quit             Salir torba
+           restart          Reiniciar torba
            cycle_layout     Disposicin de las ventanas
            reset_layout     Reiniciar la disposicin de las ventanas
            master_shrink    Achicar la region principal
@@ -301,7 +301,7 @@ body { font-family: monospace; background-color: #000000; color: #ffffff; }
      Multiples combinaciones de teclas pueden hacer lo mismo.
 
 <span class="Statement">QUIRKS</span>
-     scrotwm te da &quot;quirks&quot; (o forzados) ventanas que tienen que ser tratas de
+     torba te da &quot;quirks&quot; (o forzados) ventanas que tienen que ser tratas de
      manera especial, como por ejemplo, popups, aplicaciones de pantalla
      completa, etc.
 
@@ -355,16 +355,16 @@ body { font-family: monospace; background-color: #000000; color: #ffffff; }
            WM_CLASS(STRING) = &quot;Navigator&quot;, &quot;Firefox&quot;
 
 <span class="Statement">ARCHIVOS</span>
-     ~/.scrotwm.conf       scrotwm archivo de configuracin especifico del
+     ~/.torba.conf       torba archivo de configuracin especifico del
                            usuario.
-     /etc/scrotwm.conf     scrotwm configuraciones globales.
+     /etc/torba.conf     torba configuraciones globales.
 
 <span class="Statement">HISTORIA</span>
-     scrotwm fue inspirado en xmonad y dwm.
+     torba fue inspirado en xmonad y dwm.
 
 <span class="Statement">AUTORES</span>
 
-     scrotwm fue escrito por Marco Peereboom &lt;marco@peereboom.us&gt;, Ryan Thomas
+     torba fue escrito por Marco Peereboom &lt;marco@peereboom.us&gt;, Ryan Thomas
      McBride &lt;mcbride@countersiege.com&gt; and Darrin Chandler
      &lt;dwchandler@stilyagin.com&gt;.
 

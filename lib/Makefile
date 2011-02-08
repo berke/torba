@@ -1,4 +1,4 @@
-#	$scrotwm: Makefile,v 1.3 2009/10/02 19:23:48 marco Exp $
+#	$torba: Makefile,v 1.3 2009/10/02 19:23:48 marco Exp $
 
 .include <bsd.xconf.mk>
 

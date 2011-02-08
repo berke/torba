@@ -1,4 +1,4 @@
-/* $scrotwm: util.h,v 1.3 2010/01/11 20:44:54 marco Exp $ */
+/* $torba: util.h,v 1.3 2010/01/11 20:44:54 marco Exp $ */
 
 #define FPARSELN_UNESCESC	0x01
 #define FPARSELN_UNESCCONT	0x02
