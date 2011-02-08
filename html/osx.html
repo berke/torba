@@ -23,13 +23,13 @@ make
 <p>
 To compile torba on OSX 10.5 edit the Makefile and replace:
 <pre>
-libswmhack.so.$(LVERS): swm_hack.so
-	$(CC) -shared -fpic -o libswmhack.so.$(LVERS) $(LDADD) swm_hack.so
+libtwmhack.so.$(LVERS): twm_hack.so
+	$(CC) -shared -fpic -o libtwmhack.so.$(LVERS) $(LDADD) twm_hack.so
 </pre>
 With:
 <pre>
-libswmhack.so.$(LVERS): swm_hack.so
-	$(CC) -shared -bundle -fpic -o libswmhack.so.$(LVERS) $(LDADD) swm_hack.so
+libtwmhack.so.$(LVERS): twm_hack.so
+	$(CC) -shared -bundle -fpic -o libtwmhack.so.$(LVERS) $(LDADD) twm_hack.so
 </pre>
 <p>
 Install torba:

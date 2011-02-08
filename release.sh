@@ -4,7 +4,7 @@
 
 PREFIX=torba-
 DIRS="lib linux osx"
-FILES="Makefile baraction.sh initscreen.sh screenshot.sh torba.1 torba_es.1 torba_it.1 torba_pt.1 torba_ru.1 torba.c torba.conf linux/Makefile linux/linux.c linux/util.h lib/Makefile lib/shlib_version lib/swm_hack.c osx/Makefile osx/osx.h osx/osx.c"
+FILES="Makefile baraction.sh initscreen.sh screenshot.sh torba.1 torba_es.1 torba_it.1 torba_pt.1 torba_ru.1 torba.c torba.conf linux/Makefile linux/linux.c linux/util.h lib/Makefile lib/shlib_version lib/twm_hack.c osx/Makefile osx/osx.h osx/osx.c"
 
 if [ -z "$1" ]; then
 	echo "usage: release.sh <version>"

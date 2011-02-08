@@ -4,9 +4,9 @@
 
 PREFIX?=/usr/local
 
-LIB=    swmhack
+LIB=    twmhack
 NOMAN=	yes
-SRCS=	swm_hack.c
+SRCS=	twm_hack.c
 LIBDIR= ${X11BASE}/lib
 
 DEBUGLIBS= no

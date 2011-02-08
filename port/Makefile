@@ -2,7 +2,7 @@
 
 COMMENT=		small tiling window manager
 
-SHARED_LIBS=		swmhack 0.0
+SHARED_LIBS=		twmhack 0.0
 
 DISTNAME=		torba-TORBAVERSION
 EXTRACT_SUFX=		.tgz
@@ -26,8 +26,8 @@ RUN_DEPENDS=	:dmenu->=3.9:x11/dmenu
 		
 MAKE_FLAGS=	BINDIR="${TRUEPREFIX}/bin" \
 		MANDIR="${TRUEPREFIX}/man/cat" \
-		SHLIB_MAJOR=${LIBswmhack_VERSION:C/\..*//} \
-		SHLIB_MINOR=${LIBswmhack_VERSION:C/.*\.//}
+		SHLIB_MAJOR=${LIBtwmhack_VERSION:C/\..*//} \
+		SHLIB_MINOR=${LIBtwmhack_VERSION:C/.*\.//}
 USE_GROFF =	Yes
 
 pre-configure:

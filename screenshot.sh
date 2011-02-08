@@ -5,11 +5,11 @@
 screenshot() {
 	case $1 in
 	full)
-		scrot -m
+		torb -m
 		;;
 	window)
 		sleep 1
-		scrot -s
+		torb -s
 		;;
 	*)
 		;;

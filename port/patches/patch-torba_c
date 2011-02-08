@@ -1,12 +1,12 @@
 $OpenBSD: patch-torba_c,v 1.7 2009/09/30 00:54:06 sthen Exp $
 --- torba.c.orig	Wed Sep 23 06:04:09 2009
 +++ torba.c	Fri Sep 25 17:28:03 2009
-@@ -150,7 +150,7 @@ u_int32_t		swm_debug = 0
- #define SWM_MAX_FONT_STEPS	(3)
+@@ -150,7 +150,7 @@ u_int32_t		twm_debug = 0
+ #define TWM_MAX_FONT_STEPS	(3)
  
- #ifndef SWM_LIB
--#define SWM_LIB			"/usr/local/lib/libswmhack.so"
-+#define SWM_LIB			"${PREFIX}/lib/libswmhack.so"
+ #ifndef TWM_LIB
+-#define TWM_LIB			"/usr/local/lib/libtwmhack.so"
++#define TWM_LIB			"${PREFIX}/lib/libtwmhack.so"
  #endif
  
  char			**start_argv;

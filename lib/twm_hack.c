@@ -1,4 +1,4 @@
-/* $torba: swm_hack.c,v 1.2 2009/02/07 19:49:58 mcbride Exp $ */
+/* $torba: twm_hack.c,v 1.2 2009/02/07 19:49:58 mcbride Exp $ */
 /*
  * Copyright (c) 2009 Marco Peereboom <marco@peereboom.us>
  * Copyright (c) 2009 Ryan McBride <mcbride@countersiege.com>
@@ -77,19 +77,19 @@ MyRoot(Display * dpy)
 	return root;
 }
 
-#define SWM_PROPLEN	(16)
+#define TWM_PROPLEN	(16)
 void
 set_property(Display *dpy, Window id, char *name, char *val)
 {
 	Atom			atom = 0;
-	char			prop[SWM_PROPLEN];
+	char			prop[TWM_PROPLEN];
 
 	/* Try to update the window's workspace property */
 	atom = XInternAtom(dpy, name, False);
 	if (atom) 
-		if (snprintf(prop, SWM_PROPLEN, "%s", val) < SWM_PROPLEN)
+		if (snprintf(prop, TWM_PROPLEN, "%s", val) < TWM_PROPLEN)
 			XChangeProperty(dpy, id, atom, XA_STRING,
-			    8, PropModeReplace, prop, SWM_PROPLEN);
+			    8, PropModeReplace, prop, TWM_PROPLEN);
 }
 
 typedef             Window(CWF) (Display * _display, Window _parent, int _x,
@@ -127,12 +127,12 @@ XCreateWindow(Display * display, Window parent, int x, int y,
 	    depth, clss, visual, valuemask, attributes);
 
 	if (id) {
-		if ((env = getenv("_SWM_WS")) != NULL) 
-			set_property(display, id, "_SWM_WS", env);
-		if ((env = getenv("_SWM_PID")) != NULL)
-			set_property(display, id, "_SWM_PID", env);
-		if ((env = getenv("_SWM_XTERM_FONTADJ")) != NULL) {
-			unsetenv("_SWM_XTERM_FONTADJ");
+		if ((env = getenv("_TWM_WS")) != NULL) 
+			set_property(display, id, "_TWM_WS", env);
+		if ((env = getenv("_TWM_PID")) != NULL)
+			set_property(display, id, "_TWM_PID", env);
+		if ((env = getenv("_TWM_XTERM_FONTADJ")) != NULL) {
+			unsetenv("_TWM_XTERM_FONTADJ");
 			xterm = 1;
 		}
 	}
@@ -170,12 +170,12 @@ XCreateSimpleWindow(Display * display, Window parent, int x, int y,
 	    border_width, border, background);
 
 	if (id) {
-		if ((env = getenv("_SWM_WS")) != NULL) 
-			set_property(display, id, "_SWM_WS", env);
-		if ((env = getenv("_SWM_PID")) != NULL)
-			set_property(display, id, "_SWM_PID", env);
-		if ((env = getenv("_SWM_XTERM_FONTADJ")) != NULL) {
-			unsetenv("_SWM_XTERM_FONTADJ");
+		if ((env = getenv("_TWM_WS")) != NULL) 
+			set_property(display, id, "_TWM_WS", env);
+		if ((env = getenv("_TWM_PID")) != NULL)
+			set_property(display, id, "_TWM_PID", env);
+		if ((env = getenv("_TWM_XTERM_FONTADJ")) != NULL) {
+			unsetenv("_TWM_XTERM_FONTADJ");
 			xterm = 1;
 		}
 	}
