@@ -203,6 +203,7 @@ int			bar_extra = 1;
 int			bar_extra_running = 0;
 int			bar_verbose = 1;
 int			bar_height = 0;
+int			border_width = 2;
 int			stack_enabled = 1;
 int			clock_enabled = 1;
 char			*clock_format = NULL;
@@ -1391,7 +1392,7 @@ configreq_win(struct ws_win *win)
 	cr.y = win->g.y;
 	cr.width = win->g.w;
 	cr.height = win->g.h;
-	cr.border_width = 1;
+	cr.border_width = border_width;
 
 	XSendEvent(display, win->id, False, StructureNotifyMask, (XEvent *)&cr);
 }
@@ -1415,7 +1416,7 @@ config_win(struct ws_win *win)
 	ce.y = win->g.y;
 	ce.width = win->g.w;
 	ce.height = win->g.h;
-	ce.border_width = 1; /* XXX store this! */
+	ce.border_width = border_width; /* XXX store this! */
 	ce.above = None;
 	ce.override_redirect = False;
 	XSendEvent(display, win->id, False, StructureNotifyMask, (XEvent *)&ce);
@@ -2311,7 +2312,7 @@ stack_floater(struct ws_win *win, struct twm_region *r)
 	    (win->g.h >= HEIGHT(r)))
 		wc.border_width = 0;
 	else
-		wc.border_width = 1;
+		wc.border_width = border_width;
 	if (win->transient && (win->quirks & TWM_Q_TRANSSZ)) {
 		win->g.w = (double)WIDTH(r) * dialog_ratio;
 		win->g.h = (double)HEIGHT(r) * dialog_ratio;
@@ -2530,10 +2531,10 @@ stack_master(struct workspace *ws, struct twm_geometry *g, int rot, int flip)
 		bzero(&wc, sizeof wc);
 		if (disable_border && bar_enabled == 0 && winno == 1){
 			wc.border_width = 0;
-			win_g.w += 2;
-			win_g.h += 2;
+			win_g.w += 2 * border_width;
+			win_g.h += 2 * border_width;
 		} else
-			wc.border_width = 1;
+			wc.border_width = border_width;
 		reconfigure = 0;
 		if (rot) {
 			if (win->g.x != win_g.y || win->g.y != win_g.x ||
@@ -2754,6 +2755,11 @@ max_stack(struct workspace *ws, struct twm_geometry *g)
 	}
 }
 
+static inline char *char_p_of_unsigned_char_p(unsigned char *p)
+{
+	return (char *) p;
+}
+
 void
 send_to_ws(struct twm_region *r, union arg *args)
 {
@@ -2788,7 +2794,8 @@ send_to_ws(struct twm_region *r, union arg *args)
 	/* Try to update the window's workspace property */
 	ws_idx_atom = XInternAtom(display, "_TWM_WS", False);
 	if (ws_idx_atom &&
-	    snprintf(ws_idx_str, TWM_PROPLEN, "%d", nws->idx) < TWM_PROPLEN) {
+	    snprintf(char_p_of_unsigned_char_p(ws_idx_str),
+		    TWM_PROPLEN, "%d", nws->idx) < TWM_PROPLEN) {
 		DNPRINTF(TWM_D_PROP, "setting property _TWM_WS to %s\n",
 		    ws_idx_str);
 		XChangeProperty(display, win->id, ws_idx_atom, XA_STRING, 8,
@@ -2883,7 +2890,7 @@ resize_window(struct ws_win *win, int center)
 	r = root_to_region(win->wa.root);
 	bzero(&wc, sizeof wc);
 	mask = CWBorderWidth | CWWidth | CWHeight;
-	wc.border_width = 1;
+	wc.border_width = border_width;
 	wc.width = win->g.w;
 	wc.height = win->g.h;
 	if (center == TWM_ARG_ID_CENTER) {
@@ -3971,7 +3978,7 @@ enum	{ TWM_S_BAR_DELAY, TWM_S_BAR_ENABLED, TWM_S_STACK_ENABLED,
 	  TWM_S_CLOCK_ENABLED, TWM_S_CLOCK_FORMAT, TWM_S_CYCLE_EMPTY,
 	  TWM_S_CYCLE_VISIBLE, TWM_S_SS_ENABLED, TWM_S_TERM_WIDTH,
 	  TWM_S_TITLE_CLASS_ENABLED, TWM_S_TITLE_NAME_ENABLED, TWM_S_WINDOW_NAME_ENABLED,
-	  TWM_S_FOCUS_MODE, TWM_S_DISABLE_BORDER, TWM_S_BAR_FONT,
+	  TWM_S_FOCUS_MODE, TWM_S_DISABLE_BORDER, TWM_S_BORDER_WIDTH, TWM_S_BAR_FONT,
 	  TWM_S_BAR_ACTION, TWM_S_SPAWN_TERM, TWM_S_SS_APP, TWM_S_DIALOG_RATIO,
 	  TWM_S_BAR_AT_BOTTOM
 	};
@@ -4035,6 +4042,9 @@ setconfvalue(char *selector, char *value, int flags)
 		break;
 	case TWM_S_DISABLE_BORDER:
 		disable_border = atoi(value);
+		break;
+	case TWM_S_BORDER_WIDTH:
+		border_width = atoi(value);
 		break;
 	case TWM_S_BAR_FONT:
 		free(bar_fonts[0]);
@@ -4131,6 +4141,7 @@ struct config_option configopt[] = {
 	{ "title_name_enabled",		setconfvalue,	TWM_S_TITLE_NAME_ENABLED },
 	{ "focus_mode",			setconfvalue,   TWM_S_FOCUS_MODE },
 	{ "disable_border",		setconfvalue,   TWM_S_DISABLE_BORDER },
+	{ "border_width",		setconfvalue,	TWM_S_BORDER_WIDTH },
 };
 
 
@@ -4309,7 +4320,7 @@ manage_window(Window id)
 	r = root_to_region(win->wa.root);
 	if (prop && win->transient == 0) {
 		DNPRINTF(TWM_D_PROP, "got property _TWM_WS=%s\n", prop);
-		ws_idx = strtonum(prop, 0, 9, &errstr);
+		ws_idx = strtonum(char_p_of_unsigned_char_p(prop), 0, 9, &errstr);
 		if (errstr) {
 			DNPRINTF(TWM_D_EVENT, "window idx is %s: %s",
 			    errstr, prop);
@@ -4347,7 +4358,8 @@ manage_window(Window id)
 
 	/* Set window properties so we can remember this after reincarnation */
 	if (ws_idx_atom && prop == NULL &&
-	    snprintf(ws_idx_str, TWM_PROPLEN, "%d", ws->idx) < TWM_PROPLEN) {
+	    snprintf(char_p_of_unsigned_char_p(ws_idx_str),
+		    TWM_PROPLEN, "%d", ws->idx) < TWM_PROPLEN) {
 		DNPRINTF(TWM_D_PROP, "setting property _TWM_WS to %s\n",
 		    ws_idx_str);
 		XChangeProperty(display, win->id, ws_idx_atom, XA_STRING, 8,
@@ -4413,7 +4425,7 @@ manage_window(Window id)
 	/* border me */
 	if (border_me) {
 		bzero(&wc, sizeof wc);
-		wc.border_width = 1;
+		wc.border_width = border_width;
 		mask = CWBorderWidth;
 		XConfigureWindow(display, win->id, mask, &wc);
 		configreq_win(win);
@@ -5508,3 +5520,5 @@ done:
 
 	return (0);
 }
+
+/* vim:set tw=8 sw=8 noexpandtab tw=80: */
